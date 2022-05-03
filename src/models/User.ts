@@ -29,7 +29,7 @@ export const UserMap = (sequelize: Sequelize) => {
         {
             sequelize,
             tableName: 'users',
-            timestamps: true
+            timestamps: false
         });
     User.sync()
 }

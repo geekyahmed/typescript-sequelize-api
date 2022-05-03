@@ -5,7 +5,7 @@ export default new Sequelize({
     dialect: "postgres",
     host: 'localhost',
     port: 5432,
-    database: 'mypg',
+    database: 'mydb',
     username: 'postgres',
-    password: 'pa$$word22'
+    password: 'adesewa19'
 })
