@@ -4,20 +4,27 @@ import db from '../config/db'
 
 const router = Router();
 
+UserMap(db)
+
 router.get('/', async (req: Request, res: Response) => {
-    UserMap(db)
     const results = await User.findAll()
 
-    res.status(200).json({
+    return res.status(200).json({
         message: "Success",
         data: results
     })
 })
 
 router.get('/:id', async (req: Request, res: Response) => {
-    const singleResult: String = ''
+    const singleResult = await User.findByPk(Number(req.params.id))
 
-    res.status(200).json({
+    if (!singleResult) {
+        return res.status(401).json({
+            message: 'Resource not found'
+        })
+    }
+
+    return res.status(200).json({
         message: "Success",
         data: singleResult
     })
