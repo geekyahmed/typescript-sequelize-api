@@ -30,13 +30,12 @@ router.get('/:id', async (req: Request, res: Response) => {
     })
 })
 
-router.post('', async (req: Request, res: Response) => {
-    // const singleResult: String = ''
+router.post('/', async (req: Request, res: Response) => {
+    let newUser : any = req.body as User;
 
-    res.status(200).json({
-        message: "Success",
-        data: {}
-    })
+    const result = await User.create(newUser);
+
+    res.status(201).json({ user: result });
 })
 
 export default router
